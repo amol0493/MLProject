@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Detection</title>
+</head>
+<body>
+    <h1>Person Detection</h1>
+    <form action="/contains_person" method="post" enctype="multipart/form-data">
+        <label for="image">Select an image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <br>
+        <input type="submit" value="Check for Person">
+    </form>
+    {% if result is defined %}
+        {% if result %}
+            <p>Result: Person detected with confidence score {{ confidence_score }}</p>
+        {% else %}
+            <p>Result: No person detected</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
